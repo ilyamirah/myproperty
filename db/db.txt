@@ -1,0 +1,152 @@
+-- phpMyAdmin SQL Dump
+-- version 3.1.3.1
+-- http://www.phpmyadmin.net
+--
+-- Host: localhost
+-- Generation Time: Jun 12, 2013 at 05:26 AM
+-- Server version: 5.1.33
+-- PHP Version: 5.2.9
+
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+
+--
+-- Database: `myproperty`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `icon`
+--
+
+CREATE TABLE IF NOT EXISTS `icon` (
+  `icon_id` varchar(10) NOT NULL,
+  `icon_img` varchar(50) NOT NULL,
+  `icon_type` varchar(50) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `icon`
+--
+
+INSERT INTO `icon` (`icon_id`, `icon_img`, `icon_type`) VALUES
+('i1', 'icon1.png', 'Rental House'),
+('i2', 'icon2.png', 'Shop Lot'),
+('i3', 'icon3.png', 'Equipment'),
+('i4', 'icon4.png', 'Warehouse'),
+('i5', 'icon5.png', 'Farm'),
+('i6', 'icon6.png', 'Guest House');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `keluar`
+--
+
+CREATE TABLE IF NOT EXISTS `keluar` (
+  `Out_id` int(11) NOT NULL AUTO_INCREMENT,
+  `Prop_id` varchar(20) NOT NULL,
+  `Loan_payment` varchar(20) NOT NULL,
+  `maintenance_cost` varchar(20) NOT NULL,
+  `date` date NOT NULL,
+  PRIMARY KEY (`Out_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=28 ;
+
+--
+-- Dumping data for table `keluar`
+--
+
+INSERT INTO `keluar` (`Out_id`, `Prop_id`, `Loan_payment`, `maintenance_cost`, `date`) VALUES
+(21, '15', '3333', '100', '2013-06-02'),
+(22, '16', '4000', '150', '2013-06-11'),
+(23, '17', '0', '400', '2013-06-11'),
+(25, '19', '2880', '790', '2013-06-11'),
+(26, '20', '2880', '600', '2013-06-11'),
+(27, '21', '3099', '500', '2013-06-10');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `leaseholder`
+--
+
+CREATE TABLE IF NOT EXISTS `leaseholder` (
+  `L_name` varchar(50) NOT NULL,
+  `L_address` varchar(100) NOT NULL,
+  `L_contactno` varchar(50) NOT NULL,
+  `L_email` varchar(50) NOT NULL,
+  `L_occupation` varchar(50) NOT NULL,
+  `prop_id` int(50) NOT NULL,
+  `L_id` int(50) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`L_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=17 ;
+
+--
+-- Dumping data for table `leaseholder`
+--
+
+INSERT INTO `leaseholder` (`L_name`, `L_address`, `L_contactno`, `L_email`, `L_occupation`, `prop_id`, `L_id`) VALUES
+('jamilah mahmood', 'kubang kerian', '0182888909', 'jamilah@gmail.com', 'artist', 15, 11),
+('ily amirah hassannuddin', 'putrajaya', '0126277890', 'ilyamirah@gmail.com', 'system analyst', 17, 12),
+('jamilah mahmood', 'kebang kerian', '0182880933', 'jamilah@gmail.com', 'designer', 16, 13),
+('aina yazaz', 'batang melaka', '0122428890', 'aina@gmail.cpm', 'lecturer', 19, 14),
+('suliza sumari', 'bukit gambir', '0127099923', 'suliza@gmail.com', 'manager', 20, 15),
+('azila zulkifli', 'arau perlis', '0124556789', 'azila@gmail.com', 'manager', 21, 16);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `masuk`
+--
+
+CREATE TABLE IF NOT EXISTS `masuk` (
+  `In_id` int(11) NOT NULL AUTO_INCREMENT,
+  `Prop_id` varchar(20) NOT NULL,
+  `Rent_Price` varchar(20) NOT NULL,
+  `date` date NOT NULL,
+  PRIMARY KEY (`In_id`),
+  FULLTEXT KEY `Prop_id` (`Prop_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=16 ;
+
+--
+-- Dumping data for table `masuk`
+--
+
+INSERT INTO `masuk` (`In_id`, `Prop_id`, `Rent_Price`, `date`) VALUES
+(10, '15', '1000', '2013-06-12'),
+(14, '21', '6561', '2013-06-03'),
+(12, '18', '2700', '2013-06-11'),
+(13, '20', '4300', '2013-06-11'),
+(11, '16', '4000', '2013-06-11'),
+(15, '19', '2910', '2013-06-11');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `property`
+--
+
+CREATE TABLE IF NOT EXISTS `property` (
+  `prop_id` int(50) NOT NULL AUTO_INCREMENT,
+  `prop_name` varchar(100) NOT NULL,
+  `cost` varchar(10) NOT NULL,
+  `rent_income_date` date NOT NULL,
+  `photo` varchar(50) NOT NULL,
+  `icon_id` varchar(10) NOT NULL,
+  `prop_address` varchar(100) NOT NULL,
+  `note` varchar(100) NOT NULL,
+  PRIMARY KEY (`prop_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=22 ;
+
+--
+-- Dumping data for table `property`
+--
+
+INSERT INTO `property` (`prop_id`, `prop_name`, `cost`, `rent_income_date`, `photo`, `icon_id`, `prop_address`, `note`) VALUES
+(21, 'pumpkin', '500900', '2013-06-03', '', 'i4', 'bangi', 'store barang'),
+(19, 'indah guest house', '600000', '2013-02-08', '', 'i6', 'gong badak', 'rumah teres dua tingkat'),
+(16, 'butik jamilah', '700000', '2013-05-06', '', 'i2', 'serdang', 'lot kedai 3 tingkat'),
+(17, 'projector', '3000', '2013-03-14', '', 'i3', 'my home', 'canon'),
+(18, 'kebun buah', '600000', '2010-01-21', '', 'i5', 'hulu langat', '4 ekar'),
+(20, 'advance car wash', '400500', '2013-04-17', '', 'i2', 'taman u', 'shop lot dua tingkat'),
+(15, 'rumah bangi', '300000', '2013-06-16', '', 'i1', 'bangi', 'rumah teres satu tingkat');

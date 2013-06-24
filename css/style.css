@@ -1,0 +1,143 @@
+body{
+	font-family:Verdana, Geneva, sans-serif;
+	font-size:11px;
+}
+p,h3{
+	margin:0;
+}
+fieldset{
+	border:1px solid #D9D9D9;
+	border-radius:5px;
+}
+#wrapper{
+}
+#header{
+	background:#CCC;
+	height:150px;
+}
+#log{
+	border:1px solid #CCC;	
+	padding:5px;
+}
+#mainbody{
+	border:1px solid #CCC;
+	padding:5px;
+	overflow:hidden;
+	/*height:500px;*/
+}
+.icon{
+	/*height:300px;*/
+	width:150px;
+	margin:0 20px 0 0;
+	/*border:1px solid #F00;*/
+	float:left;
+	
+}
+.property{
+	/*height:300px;*/
+	width:150px;
+	margin:0 20px 0 0;
+	/*border:1px solid #F00;*/
+	float:left;
+}
+#choose{
+	padding:3px 5px 3px 5px;
+	border-radius:5px;
+	font-weight:bold;
+	color:#FFF;
+	text-decoration:none;
+	background:#666;
+}
+#choose:hover{
+	background:#999;
+}
+#home{
+	padding:3px 5px 3px 5px;
+	border-radius:5px;
+	font-weight:bold;
+	color:#FFF;
+	text-decoration:none;
+    background-color: Gray;
+}
+#home:hover{
+	background-color: Orange;
+}
+.propertytitle{
+	font-weight:bold;
+}
+.propertyaddress{
+	font-style:italic;
+}
+#icon_img{
+	float:left;
+	width:150px;
+	height:300px;
+	/*border:1px solid #000;*/
+	margin:0 20px 0 0;
+}
+#property_details{
+	float:left;
+	width:500px;
+	height:300px;
+	/*border:1px solid #000;*/
+}
+#property_details_report{
+	float:left;
+	/*border:1px solid #000;*/
+}
+.propertytitlereport
+{
+    text-align:left;
+	font-weight:bold;
+}
+.propertyaddressreport
+{
+    text-align:left;
+	font-style:italic;
+}
+#footer{
+	background:#333;
+	/*height:30px;*/
+}
+#footer p{
+	margin:0;
+	color:#FFF;
+	padding:10px;
+}
+
+table{
+  border: 0px solid black;
+  border-spacing: 0px;
+}
+
+table thead tr{
+  font-family: Arial, monospace;
+  font-size: 14px;
+}
+
+table thead tr th{
+  border-bottom: 2px solid black;
+  border-top: 1px solid black;
+  margin: 0px;
+  padding: 2px;
+  background-color: #cccccc;
+}
+
+table tr {
+  font-family: arial, monospace;
+  color: black;
+  font-size:12px;
+  background-color: white;
+}
+
+table tr.odd {
+        
+   background-color: #FBE2C1;
+}
+
+table tr td, th{
+  border-bottom: 0px;
+  padding: 2px;
+}
+
+
